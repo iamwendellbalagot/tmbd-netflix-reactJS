@@ -5,15 +5,17 @@
 
 .row > h2 {
     text-align: left;
-    margin-left: 20px;
+    margin:5px 5px 5px 20px;
+    color: #ccc;
 }
 
 .row__movies {
     display: flex;
     flex-direction: row;
     height: 200;
-    width: 100%;
     padding: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
     overflow-y: hidden;
     overflow-x: scroll;
 }
@@ -22,13 +24,22 @@
     overflow: hidden;
 }
 
-.row__movies > img {
+.row__posters {
     object-fit: contain;
-    height: 120px;
+    max-height: 250px;
     margin-left: 10px;
     transition: transform 200ms;
 }
 
 .row__movies > img:hover {
+    transform: scale(1.09);
+}
+
+.row__backdrop {
+    max-height: 150px;
+    margin-left: 20px;
+}
+
+.row__backdrop:hover {
     transform: scale(1.08);
 }

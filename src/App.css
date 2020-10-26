@@ -1,4 +1,6 @@
 .app {
   text-align: center;
   margin: 0;
+  background-color: rgb(19, 18, 18);
+  width: 100%;
 }

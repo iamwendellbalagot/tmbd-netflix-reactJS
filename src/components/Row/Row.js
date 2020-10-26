@@ -7,7 +7,7 @@ const imgURL = 'https://image.tmdb.org/t/p/original';
 
 // {<img src={`${imgURL}${movie.poster_path}`} alt={movie.name}></img>}
 
-function Row({fetchUrl, rowName}) {
+function Row({fetchUrl, rowName, isOriginal}) {
     const [movies, setMovies] = useState([]);
 
     useEffect(() =>{
@@ -23,7 +23,12 @@ function Row({fetchUrl, rowName}) {
             <h2>{rowName}</h2>
             <div className='row__movies'>
                 {movies?.map(movie =>(
-                    <img src={`${imgURL}${movie.poster_path}`} alt={movie.name} key ={movie.id}></img>
+                    <img 
+                        src={`${imgURL}${isOriginal?movie.poster_path: movie?.backdrop_path}`} 
+                        alt={movie.name} 
+                        key ={movie.id} 
+                        className = {`row__posters ${!isOriginal && 'row__backdrop'}`}
+                        />
                 ))}
             </div>
         </div>
