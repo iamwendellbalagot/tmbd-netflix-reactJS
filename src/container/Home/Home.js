@@ -2,12 +2,14 @@ import React from 'react'
 import './Home.css'
 
 import requests from '../../request/request';
+import Header from '../../components/Header/Header';
 import Row from '../../components/Row/Row';
 
 
 function Home() {
     return (
         <div className = 'home'>
+            <Header />
             <div className = 'home__body'>
                 <Row fetchUrl={requests.urlOriginals} rowName={'Netflix Originals'} isOriginal />
                 <Row fetchUrl={requests.urlTrending} rowName={'Trending'} />
@@ -23,4 +25,4 @@ function Home() {
     )
 }
 
-export default Home
+export default Home;

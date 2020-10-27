@@ -21,14 +21,17 @@
 }
 
 .row__movies::-webkit-scrollbar{
-    overflow: hidden;
+    width: 5px;
+    overflow-x: hidden;
 }
+
 
 .row__posters {
     object-fit: contain;
     max-height: 250px;
     margin-left: 10px;
     transition: transform 200ms;
+    cursor: pointer;
 }
 
 .row__movies > img:hover {
