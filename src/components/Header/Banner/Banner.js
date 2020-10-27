@@ -10,6 +10,13 @@ import ReactPlayer from 'react-player';
 function Banner() {
     const [bannerFeatured, setBannerFeatured] = useState(null);
     const [playing, setPlaying] = useState('');
+    let playStop = 'Play'
+
+    if (playing){
+        playStop = 'Stop';
+    }else playStop = 'Play';
+    
+
     
     useEffect(() =>{
         axios.get(requests.urlTrending)
@@ -45,7 +52,7 @@ function Banner() {
                 <div className='banner__contents'>
                     <h1>{bannerFeatured?.name || bannerFeatured?.title || bannerFeatured?.original_title}</h1>
                     <div className='banner__buttons'>
-                        <button onClick = {() => playTrailer(bannerFeatured?.name || bannerFeatured?.title || bannerFeatured?.original_title)}>Play</button>
+                        <button onClick = {() => playTrailer(bannerFeatured?.name || bannerFeatured?.title || bannerFeatured?.original_title)}>{playStop}</button>
                         <button>My List</button>
                     </div>
                     <p>{truncate(bannerFeatured?.overview, 200)}</p>

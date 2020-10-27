@@ -1,0 +1,25 @@
+.navigation {
+    height: 50px;
+    width: 100%;
+    position: fixed;
+    transition: all 400ms;
+    z-index: 1;
+}
+
+.navigation__black {
+    background-color: black;
+}
+
+.navigation > ul {
+    display: flex;
+    float: right;
+}
+
+.navigation > ul > li {
+    margin-right: 20px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    list-style: none;
+    cursor: pointer;
+}

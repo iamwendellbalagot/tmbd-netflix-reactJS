@@ -4,11 +4,13 @@ import './Home.css'
 import requests from '../../request/request';
 import Header from '../../components/Header/Header';
 import Row from '../../components/Row/Row';
+import Navigation from '../../components/Navigation/Navigation';
 
 
 function Home() {
     return (
         <div className = 'home'>
+            <Navigation />
             <Header />
             <div className = 'home__body'>
                 <Row fetchUrl={requests.urlOriginals} rowName={'Netflix Originals'} isOriginal />
