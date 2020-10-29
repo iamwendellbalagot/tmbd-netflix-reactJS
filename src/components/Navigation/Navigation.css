@@ -4,15 +4,43 @@
     position: fixed;
     transition: all 400ms;
     z-index: 1;
+    display: flex;
+}
+
+.navigation__form {
+    display: flex;
+    flex: 0.8;
+}
+
+.navigation__form > form {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.form__input {
+    height: 30px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    text-indent: 10px;
+    margin-left: 20px;
+}
+
+.form__btn {
+    color: #ffffff;
+    cursor: pointer;
 }
 
 .navigation__black {
     background-color: black;
+    opacity: 0.9;
 }
 
 .navigation > ul {
     display: flex;
-    float: right;
+    margin-left: 20%;
+    flex: 0.3;
 }
 
 .navigation > ul > li {
@@ -22,4 +50,17 @@
     color: #ffffff;
     list-style: none;
     cursor: pointer;
+}
+
+@media (max-width:1024px) {
+    .navigation > ul {
+       flex: 0.4;
+       margin-left: 3%;
+    }
+}
+
+@media (min-width:1500px) {
+    .navigation > ul {
+       margin-left: 40%
+    }
 }

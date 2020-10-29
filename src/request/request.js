@@ -9,7 +9,11 @@ const requests = {
     urlComedy: `/discover/movie?api_key=${API_KEY}&with_genres=35`,
     urlHorror: `/discover/movie?api_key=${API_KEY}&with_genres=27`,
     urlRomance: `/discover/movie?api_key=${API_KEY}&with_genres=10749`,
-    urlDocumentaries: `/discover/movie?api_key=${API_KEY}&with_genres=99`
+    urlDocumentaries: `/discover/movie?api_key=${API_KEY}&with_genres=99`,
+}
+
+export const movieSearch = (name) =>{
+    return `/search/movie?api_key=${API_KEY}&query=${name}`
 }
 
 export default requests;

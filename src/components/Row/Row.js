@@ -39,13 +39,14 @@ function Row({fetchUrl, rowName, isOriginal}) {
             <h2>{rowName}</h2>
             <div className='row__movies'>
                 {movies?.map(movie =>(
+                    movie.poster_path?
                     <img 
-                        src={`${imgURL}${isOriginal?movie.poster_path: movie?.backdrop_path}`} 
+                        src={`${imgURL}${isOriginal?movie?.poster_path: movie?.backdrop_path}`} 
                         alt={movie.name} 
                         key ={movie.id} 
                         className = {`row__posters ${!isOriginal && 'row__backdrop'}`}
                         onClick = {()=> playTrailer(movie?.name || movie?.title || movie?.original_title)}
-                        />
+                        />:null
                 ))}
             </div>
             {playing?<ReactPlayer url={playing} width={'100%'} height={500} playing ={true}/>: null}

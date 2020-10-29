@@ -1,18 +1,36 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Home.css'
 
-import requests from '../../request/request';
+import requests, { movieSearch } from '../../request/request';
 import Header from '../../components/Header/Header';
 import Row from '../../components/Row/Row';
 import Navigation from '../../components/Navigation/Navigation';
 
 
 function Home() {
+
+    const [searchURL, setSearchURL] = useState('');
+    const [searchResults, showSearchResults] = useState(false);
+
+    const handleSearch = (name) =>{
+        name = name.split(' ');
+        name = name.join('+');
+        console.log(name);
+        setSearchURL(movieSearch(name));
+        showSearchResults(true)
+        // axios.get(movieSearch(name))
+        // .then(res => {
+        //     console.log(res.data.results)
+        //     setSearchURL('')
+        // })
+    }
+
     return (
         <div className = 'home'>
-            <Navigation />
+            <Navigation handleSearch = {handleSearch}/>
             <Header />
             <div className = 'home__body'>
+                {searchResults?<Row fetchUrl={searchURL} rowName={'Search Results'} isOriginal />: null}
                 <Row fetchUrl={requests.urlOriginals} rowName={'Netflix Originals'} isOriginal />
                 <Row fetchUrl={requests.urlTrending} rowName={'Trending'} />
                 <Row fetchUrl={requests.urlTopRated} rowName={'Top rated'} />

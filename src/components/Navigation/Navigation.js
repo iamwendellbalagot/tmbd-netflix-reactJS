@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import SearchIcon from '@material-ui/icons/Search';
 import './Navigation.css';
 
-function Navigaiton() {
+function Navigaiton({handleSearch}) {
     const [show, setShow] = useState(false);
+    const [form, setForm] = useState(false);
+    const [searchName, setSearchName] = useState('');
 
     useEffect(() =>{
         window.addEventListener('scroll', () =>{
-            if (window.scrollY > 100){
+            if (window.scrollY > 200){
                 setShow(true)
             } else setShow(false);
         });
@@ -15,11 +18,32 @@ function Navigaiton() {
         };
     }, []);
 
+    // useEffect(() =>{
+    //     console.log(searchName)
+    // }, [searchName])
+
+    const handleSearchSubmit = (event) => {
+        event.preventDefault();
+        handleSearch(searchName)
+        setSearchName('');
+    }
+
+    const showForm = () => {
+        setForm(!form);
+    }
+
     return (
         <div className={`navigation ${show && 'navigation__black'}`} >
+            <div className='navigation__form'>
+                {form?<form onSubmit = {handleSearchSubmit}>
+                    <input type='text' placeholder='Search' value={searchName} className='form__input' onChange={e => setSearchName(e.target.value)} />
+                    <SearchIcon type='submit' className="form__btn"/>
+                </form>: null}
+            </div>
+            
             <ul>
                 <li>Home</li>
-                <li>Search</li>
+                <li onClick={showForm}>Search</li>
                 <li>My List</li>
             </ul>
         </div>

@@ -16,8 +16,6 @@ function Banner() {
         playStop = 'Stop';
     }else playStop = 'Play';
     
-
-    
     useEffect(() =>{
         axios.get(requests.urlTrending)
         .then(res =>{
