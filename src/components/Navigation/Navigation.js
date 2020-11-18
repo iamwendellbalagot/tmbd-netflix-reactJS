@@ -18,10 +18,6 @@ function Navigaiton({handleSearch}) {
         };
     }, []);
 
-    // useEffect(() =>{
-    //     console.log(searchName)
-    // }, [searchName])
-
     const handleSearchSubmit = (event) => {
         event.preventDefault();
         handleSearch(searchName)
