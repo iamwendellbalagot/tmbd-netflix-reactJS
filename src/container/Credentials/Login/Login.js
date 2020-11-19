@@ -1,6 +1,11 @@
 import React, {useState} from 'react';
 import './Login.css';
 
+import {useDispatch} from 'react-redux';
+import { setUser } from '../../../reduxSlices/userSlice';
+
+import {auth} from '../../../firebase';
+
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -8,9 +13,13 @@ const Login = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         return (email && password ?
-            (console.log(email, password),
-                setEmail(''), setPassword('')) : null)
-    }
+            (
+                auth.signInWithEmailAndPassword(email, password)
+                    .catch(err => alert(err.message)),
+                setEmail(''), 
+                setPassword('')
+            ) : null);
+    };
     return (
         <div className='login'>
             <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Logo"/>
