@@ -3,9 +3,10 @@ import './Row.css';
 
 import axios from '../../axios/axios';
 import movieTrailer from 'movie-trailer';
-import ReactPlayer from 'react-player/youtube'
+import ReactPlayer from 'react-player/youtube';
+import Movies from './Movies/Movies';
 
-const imgURL = 'https://image.tmdb.org/t/p/original';
+
 
 // {<img src={`${imgURL}${movie.poster_path}`} alt={movie.name}></img>}
 
@@ -17,6 +18,7 @@ function Row({fetchUrl, rowName, isOriginal}) {
         axios.get(fetchUrl)
         .then(res =>{
             setMovies(res?.data.results)
+            console.log(res.data.results);
         })
         .catch(err => console.log(err))
     }, [fetchUrl]);
@@ -40,13 +42,11 @@ function Row({fetchUrl, rowName, isOriginal}) {
             <div className='row__movies'>
                 {movies?.map(movie =>(
                     movie.poster_path?
-                    <img 
-                        src={`${imgURL}${isOriginal?movie?.poster_path: movie?.backdrop_path}`} 
-                        alt={movie.name} 
-                        key ={movie.id} 
-                        className = {`row__posters ${!isOriginal && 'row__backdrop'}`}
-                        onClick = {()=> playTrailer(movie?.name || movie?.title || movie?.original_title)}
-                        />:null
+                   <Movies 
+                        movie={movie}
+                        playTrailer={playTrailer}
+                        isOriginal ={isOriginal}
+                    />:null
                 ))}
             </div>
             {playing?<ReactPlayer url={playing} width={'100%'} height={500} playing ={true}/>: null}

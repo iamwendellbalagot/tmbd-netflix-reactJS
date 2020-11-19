@@ -1,0 +1,51 @@
+.movies > .MuiSvgIcon-root {
+  position: absolute;
+  z-index: 500;
+  margin-left: 10px;
+  color: white;
+  cursor: pointer;
+  display: none;
+}
+
+.movies:hover .MuiSvgIcon-root {
+  display: flex !important;
+  transition: all 200ms;
+}
+
+.MuiSvgIcon-root:hover {
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+/* .movies > div {
+  position: sticky;
+  color: #fff;
+  height: 30px;
+  width: inherit;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.movies:hover > div {
+  display: flex;
+} */
+.movies__posters {
+  object-fit: contain;
+  max-height: 250px;
+  margin-left: 10px;
+  transition: transform 200ms;
+  cursor: pointer;
+}
+
+.movies > img:hover {
+  transform: scale(1.09);
+}
+
+.movies__backdrop {
+  max-height: 150px;
+  margin-left: 20px;
+}
+
+.movies__backdrop:hover {
+  transform: scale(1.08);
+}

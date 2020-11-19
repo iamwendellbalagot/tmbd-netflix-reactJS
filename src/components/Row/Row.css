@@ -1,48 +1,26 @@
-.row{
-    display: flex;
-    flex-direction: column;
+.row {
+  display: flex;
+  flex-direction: column;
 }
 
 .row > h2 {
-    text-align: left;
-    margin:5px 5px 5px 20px;
-    color: #ccc;
+  text-align: left;
+  margin: 5px 5px 5px 20px;
+  color: #ccc;
 }
 
 .row__movies {
-    display: flex;
-    flex-direction: row;
-    height: 200;
-    padding: 10px;
-    margin-left: 20px;
-    margin-right: 20px;
-    overflow-y: hidden;
-    overflow-x: scroll;
+  display: flex;
+  flex-direction: row;
+  height: 200;
+  padding: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  overflow-y: hidden;
+  overflow-x: scroll;
 }
 
-.row__movies::-webkit-scrollbar{
-    width: 5px;
-    overflow-x: hidden;
-}
-
-
-.row__posters {
-    object-fit: contain;
-    max-height: 250px;
-    margin-left: 10px;
-    transition: transform 200ms;
-    cursor: pointer;
-}
-
-.row__movies > img:hover {
-    transform: scale(1.09);
-}
-
-.row__backdrop {
-    max-height: 150px;
-    margin-left: 20px;
-}
-
-.row__backdrop:hover {
-    transform: scale(1.08);
+.row__movies::-webkit-scrollbar {
+  width: 5px;
+  overflow-x: hidden;
 }
