@@ -1,9 +1,14 @@
+.movies {
+  display: flex;
+}
+
 .movies > .MuiSvgIcon-root {
   position: absolute;
   z-index: 500;
   margin-left: 10px;
   color: white;
   cursor: pointer;
+  mix-blend-mode: difference;
   display: none;
 }
 
@@ -17,18 +22,6 @@
   margin-top: 10px;
 }
 
-/* .movies > div {
-  position: sticky;
-  color: #fff;
-  height: 30px;
-  width: inherit;
-  display: none;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.movies:hover > div {
-  display: flex;
-} */
 .movies__posters {
   object-fit: contain;
   max-height: 250px;
