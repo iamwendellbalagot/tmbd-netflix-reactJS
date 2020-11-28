@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import SearchIcon from '@material-ui/icons/Search';
 import './Navigation.css';
 
@@ -7,15 +8,14 @@ function Navigaiton({handleSearch}) {
     const [form, setForm] = useState(false);
     const [searchName, setSearchName] = useState('');
 
+    const history = useHistory()
+
     useEffect(() =>{
         window.addEventListener('scroll', () =>{
             if (window.scrollY > 200){
                 setShow(true)
             } else setShow(false);
         });
-        return () => {
-            window.removeEventListener('scroll');
-        };
     }, []);
 
     const handleSearchSubmit = (event) => {
@@ -40,7 +40,7 @@ function Navigaiton({handleSearch}) {
             <ul>
                 <li>Home</li>
                 <li onClick={showForm}>Search</li>
-                <li>My List</li>
+                <li onClick = {() => history.push('/mylist')}>My List</li>
             </ul>
         </div>
     )

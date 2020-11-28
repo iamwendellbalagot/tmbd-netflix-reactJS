@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './MyList.css';
+import {useHistory} from 'react-router-dom';
 import {useSelector} from 'react-redux';
 import { getUser, getMovies } from '../../reduxSlices/userSlice';
 import { db, auth } from '../../firebase';
@@ -10,14 +11,21 @@ const MyList = () => {
     const user = useSelector(getUser);
     const movies = useSelector(getMovies);
 
+    const history = useHistory()
+
     const handleLogout = () => {
         auth.signOut()
     }
 
+    // useEffect(() => {
+    //     !user && history.replace('/')
+    // }, [])
+
     return (
         <div className = 'mylist'>
             <div className='mylist__header'>
-                <span onClick={handleLogout} >Home</span>
+                <span onClick={() => history.push('/')} >Home</span>
+                <span onClick={handleLogout} >Logout</span>
             </div>
             <div className="mylist__movies">
                 {movies? movies.map(movie => (

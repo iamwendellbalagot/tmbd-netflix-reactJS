@@ -18,7 +18,6 @@ function Row({fetchUrl, rowName, isOriginal}) {
         axios.get(fetchUrl)
         .then(res =>{
             setMovies(res?.data.results)
-            console.log(res.data.results);
         })
         .catch(err => console.log(err))
     }, [fetchUrl]);
