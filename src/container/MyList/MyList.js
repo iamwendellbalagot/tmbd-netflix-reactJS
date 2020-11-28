@@ -14,12 +14,15 @@ const MyList = () => {
     const history = useHistory()
 
     const handleLogout = () => {
-        auth.signOut()
+        auth.signOut();
+        history.replace('/')
     }
 
-    // useEffect(() => {
-    //     !user && history.replace('/')
-    // }, [])
+    useEffect(() => {
+        auth.onAuthStateChanged( userAuth => {
+            !userAuth && history.push('/') 
+        })
+    }, [])
 
     return (
         <div className = 'mylist'>
