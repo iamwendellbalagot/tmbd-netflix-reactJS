@@ -26,3 +26,19 @@
   list-style: none;
   cursor: pointer;
 }
+
+.mylist__movies {
+  margin: 20px;
+}
+
+.mylist__movies > img {
+  object-fit: contain;
+  max-height: 250px;
+  margin-left: 20px;
+  margin-top: 20px;
+  transition: transform 200ms;
+}
+
+.mylist__movies > img:hover {
+  transform: scale(1.09);
+}
