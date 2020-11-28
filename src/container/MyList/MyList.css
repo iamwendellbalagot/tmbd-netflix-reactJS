@@ -1,0 +1,28 @@
+.mylist {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(19, 18, 18);
+}
+
+.mylist__header {
+  height: 50px;
+  width: 100%;
+  transition: all 400ms;
+  z-index: 1;
+  display: flex;
+  color: white;
+  background-color: black;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.mylist__header > span {
+  margin-right: 20px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  list-style: none;
+  cursor: pointer;
+}

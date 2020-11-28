@@ -3,11 +3,12 @@ import './App.css';
 
 import {Route} from 'react-router-dom';
 import  {useSelector, useDispatch} from 'react-redux';
-import {setUser, logout, getUser} from './reduxSlices/userSlice';
-import {auth} from './firebase';
+import {setUser, logout, getUser, setMovies} from './reduxSlices/userSlice';
+import {auth, db} from './firebase';
 
 import Home from './container/Home/Home';
 import Login from './container/Credentials/Login/Login';
+import MyList from './container/MyList/MyList';
 
 function App() {
   const dispatch = useDispatch();
@@ -22,12 +23,27 @@ function App() {
             displayName: userAuth.displayName
           }))
         ): dispatch(logout()));
-      })
-  }, [user]);
+      });
+     
+  }, []);
+
+  useEffect(() => {
+    user && db.collection('movies')
+        .onSnapshot( snapshot => {
+          let movieList = []
+          snapshot.docs.forEach(doc => {
+            user.userUID === doc.data().userID && 
+              movieList.push(doc.data())
+          });
+          movieList.length > 0 && 
+            dispatch(setMovies(movieList));
+        })
+  }, [user])
 
   return (
     <div className="app">
-      {user? <Home /> : <Login />}
+      {/* {user? <Home /> : <Login />} */}
+      {user? <MyList /> : <Login />}
     </div>
   );
 }
