@@ -8,10 +8,11 @@ const firebaseConfig = {
     storageBucket: "mymovielist-rjs.appspot.com",
     messagingSenderId: "175697701473",
     appId: "1:175697701473:web:adace9134f0609cceb1820"
-};
+  };
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 
+export const googleProv = new firebase.auth.GoogleAuthProvider();
 export const db = firebaseApp.firestore();
 export const auth = firebaseApp.auth();
 export const storage = firebaseApp.storage();
